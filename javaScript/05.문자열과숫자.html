@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열과 숫자</title>
+    <style>
+        .area {
+            width: 400px;
+            border: 1px solid;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>문자열과 숫자</h1>
+    <h3>* 문자열 관련 메소드</h3>
+    <button onclick="stringTest();">문자열처리메소드</button>
+    <div id="area1" class="area"></div>
+
+    <script>
+        function stringTest {
+            const area1 = document.getElementById("area1");
+            const str1 = "Hello World";
+
+            area1.innerHTML="str1 : " + str1 + "<br>";
+            area1.innerHTML=`str1 : ${str1}<br>`;
+            area1.innerHTML += `toUpperCase() : ${str1.toUpperCase()}<br>`;
+            area1.innerHTML += `toLowerCase() : ${str1.toLowerCase()}<br>`;
+            area1.innerHTML += `문자열의 길이 : ${str1.length}<br>`;
+            area1.innerHTML += "-----------------------------------------------<br>";
+
+            for(let i=0; i<str1.length; i++) {
+                area1.innerHTML += `${i}번 인덱스 : ${str.charAt1(i)}<br>`; //str1[i]
+
+            }
+            area1.innerHTML += "-----------------------------------------------<br>";
+
+            area.innerHTML += `앞에서부터 첫 'l'의 위치 : ${str1.indexOf("l")}<br>`;
+            area1.innerHTML += `뒤에서부터 첫 '1'의 위치 : ${str1.lastIndexOf("1")}<br>`;
+            area.innerHTML += `앞에서부터 첫 'a'의 위치 : ${str1.indexOf("a")}<br>`;
+            //존재하지 않는 문자열 일때는 -1 반환
+            area1.innerHTML += `substring(시작인데스) : ${str1.substring(6)}<br>`;
+            area1.innerHTML += `substring(시작인덱스, 끝인덱스) : ${str1.substring(0,5)}<br>`;
+
+            const str2 = "사과,바나나,복숭아,키위";
+            console.log(typeof str2);
+            const fruits = str2.split(",");  //[사과,바나나,...]
+
+            area.innerHTML += `str2 : ${str2}<br>`;
+            area1.innerHTML += `fruits : ${fruits}<br>`;
+            area1.innerHTML += `fruits의 자료형 : ${typeof fruits}<br>`;
+            console.log(typeof str2);
+            console.log(typeof fruits);
+
+        }
+    </script>
+    <h3>* 문자열 관련 html 메소드</h3>
+    <button onclick="stringhtmlTest();">문자열 html메소드</button>
+    <div id="area2" class="area"></div>
+    <script>
+        function stringhtmlTest() {
+            let area2 = document.getElementById("area2");
+
+            let str="javascript";
+            area2.innerHTML = `str : ${str}<br>`;
+           // area2.innerHTML += `bold() : ${str.bold()}<br>`;
+           // area2.innerHTML += `italics() : ${str.italics()}<br>`;
+           // 동시적용은 .으로 연속연결
+           area2.innerHTML += `bold_italics : ${str.bold().italics()}<br>`;
+           area2.innerHTML += `small() : ${str.small()}<br>`;
+           area2.innerHTML += `sub() : ${str.sub()}<br>`; //밑 첨자
+           area2.innerHTML += `link() :${str.link("https://www.naver.com")}<br>`;
+        }
+    </script>
+
+    <hr>
+
+    <h3>* 숫자(수학) 관련 메소드</h3>
+    <button onclick="mathTest();">숫자관련메소드</button>
+    <div id="area3" class="area"></div>
+
+    <script>
+        function mathTest() {
+            const area3 = document.getElementById("area3");
+
+            // 자바스크립트 Math 내장 객체 제공
+            area3.innerHTML=`절대값 : ${Math.abs(-1234)}<br>`;
+            area3.innerHTML += `랜덤값 : ${Math.random()}<br>`;
+            area3.innerHTML += `반올림 : ${Math.round(123.789)}<br>`; // 위치조정불가
+            area3.innerHTML += `버림 : ${Math.floor(123.456)}<br>`;
+            area3.innerHTML += `올림 : ${Math.ceil(123.123)}<br>`;
+        }
+    </script>
+</body>
+</html>

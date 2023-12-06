@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+</head>
+<body>
+    <h1>함수</h1>
+    <h3>* 선언적 함수</h3>
+    <pre>
+        function 함수명([매개변수,매개변수, ...]) {
+            함수호출시 실행할 코드;
+            [return 결과값;]
+        }
+    </pre>
+    <div id="area1" class="area"></div>
+    <button onclick="test1();">실행확인</button>
+
+    <script>
+        function test1() {
+            document.getElementById('area1').innerHTML = 'test() 함수 실행';
+
+        }
+    </script>
+    <h3>* 익명 함수(이름없는 함수)</h3>
+    <pre>
+        변수|속성 = function([매개변수, 매개변수,...]) {
+            실행할 코드;
+            [return 결과값;]
+        }
+    </pre>
+    - 특정 변수나 속성에 대입되는 함수 제시시 주로 사용됨
+    (주로 이벤트 핸들러 작성시 사용)
+
+    <div id="area2" class="area"></div>
+    <button id="btn">실행확인</button>
+
+    <script>
+        const button = document.getElementById('btn');
+        btn.onclick = function() {
+            document.getElementById('area2').innerHTML = '이벤트핸들러를 통해 실행됨';
+        }
+
+    </script>
+    <h3>* 화살표 함수(Arrow function)</h3>
+    <pre>
+        - 본문에 리턴만 있을 때
+          변수 = ({매개변수, 매개변수,...}) => 리턴값;
+          -본문에 내용이 여러줄 일때
+          변수 = ({매개변수, 매개변수,...})  => { 
+            실행 코드;
+            실행 코드;
+            실행 코드;
+            ...
+            [return 결과값;]
+          }
+          -익명함수를 간단히 작성하는 방법(ES6(ES2015)에 추가)
+    </pre>
+    <div id="aera3" class="area"></div>
+    <button id="btn2">실행확인</button>
+
+    <script>
+        const area3 = document.getElementById('area3');
+        const btn2 = document.getElementById('btn2');
+        const value = '홍길동';
+       /*
+        btn2.onclick = function() {
+            area3.innerHTML += '이벤트 헨들러가 실행됨<br>';
+
+        }
+        */
+       //위의 것을 화살표 함수로 고치면
+        btn2.onclick = () => area2.innerHTML += `화살표 함수가 실행됨<br>`;
+
+        
+        /* btn2.onclick = function(value) {
+            area3.innerHTML = `${value}님 환영합니다`;
+         }
+         */
+
+        btn2.onclick = value => area3.innerHTML += `${value} 화살표 함수가 실행됨<br>`;
+
+
+    </script>
+    <h3>* 즉시 실행 함수 (iife(Immediately Invoked Function Expression))</h3>
+    <pre>
+        - 정의하면서 즉시 실행되는 함수
+        - 단 한번만 호출됨
+          ([변수] = function([매개변수, 매개변수,...]) {
+            실행될 코드;
+          })(인자,....);
+    </pre>
+    <script>
+        //window.onload = function() {}
+        (function() {
+            console.log('iife 실행');
+        })();
+
+        (function(name) {
+         console.log(`Hi, ${name}`);
+        })('에드 인 에듀');
+
+        //위 함수 화살표 함수로 고치기
+        ((name)=> console.log(`Hi, ${name}`))('에드인에듀');
+    </script>
+    
+    <hr>
+
+    <div id="area4" class="area"></div>
+    <h2>함수의 매개변수</h2>
+    <button onclick="test2('안녕');">문자열 매개변수</button>
+    <button onclick="test2(10);">숫자 매개변수</button>
+    <button onclick="test2([1,2,3]);">배열 매개변수</button>
+    <button onclick="test2(true);">논리 매개변수</button>
+    <br>
+    <button onclick='test2(prompt("이름입력"));'>이름입력</button>
+
+
+
+
+    <script>
+        //매개변수 제시시 자료형지정x, 선언구문x = > 변수명
+        function test2(value) {
+            document.getElementById('area4').innerHTML =value;
+
+        }
+    </script>
+</body>
+</html>

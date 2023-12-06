@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="member.jsp" method="post" name="regFrm">
+        <table border="1" width="300">
+
+            <tr>
+                <td colspan="2">회원가입</td>
+
+            </tr>
+            <tr>
+                <td width="100">아이디</td>
+                <td width="200"><input name="id" size="25"></td>
+
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="pwd" size="25" ></td>
+
+            </tr>
+            <tr>
+                <td>비밀번호확인</td>
+                <td><input type="password" name="repwd" size="25"></td>
+
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" value="회원가입" onclick="inputCheck();">
+                    <input type="reset" value="초기화">
+
+                </td>
+            </tr>
+        </table>
+
+    </form>
+    <script>
+        function inputCheck() {
+            if(document.regFrm.id.value == "") {
+                alert("아이디를 입력해주세요");
+               // document.regFrm.id.focus();
+                return;
+            }
+            if(document.regFrm.pwd.value!= document.regFrm.repwd.value) {
+                alert("비밀번호가 다릅니다")
+                document.regFrm.repwd.focus();
+                return;
+            }
+            document.regFrm.submit();
+
+        }
+    </script>
+</body>
+</html>

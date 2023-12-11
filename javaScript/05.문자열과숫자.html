@@ -92,5 +92,24 @@
             area3.innerHTML += `올림 : ${Math.ceil(123.123)}<br>`;
         }
     </script>
+    <hr>
+
+    <h3>* 문자열과 숫자간의 산술연산 / 형변환</h3>
+
+    <button onclick="arithmetic();">산술연산</button>
+    <div id="area4" class="area"></div>
+
+    <script>
+        function arithmetic() {
+
+            let test1 = 7+7; // 14
+            let test2 = 7+"7"; //"77"
+            let test3 = "7" + 7+7; //"777"
+            let test4 = "7" + (7+7); //"714"
+            console.log(`test1 = ${test1},test2= ${test2},test3=${test3},test4=${test4}`);
+
+            const area4 = document.getElementById("area4");
+        }
+    </script>
 </body>
 </html>

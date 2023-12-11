@@ -169,16 +169,8 @@
                 age :27,
                 id : "addinedu"
             };
-            // 백틱(ES6) 사용시 /n을 사용하지 않아도 줄바꿈이 들어감
-            // 백틱 안에 달러기호 ${}를 사용하면 변수나 표현식을 표현할 수 있음
-            const name2 = `Hello ${name}`;
-            console.log(name2);
-        }
-        const testFn = function() {
-            alert("함수호출");
-        }
-        let noval;
-
+            
+            let noval;
         console.log(typeof name,name);
         console.log(typeof age,age);
         console.log(typeof bool,bool);
@@ -187,6 +179,31 @@
         console.log(typeof user,user);
         console.log(typeof testFn,testFn);
         console.log(typeof noval,noval);
+
+        //화면에 출력시(텍스트로 출력되기 때문에 콘솔과 다르게 보일수 있음)
+        divE1.innerHTML = typeof name + ", " +name +"<br>";
+        divE1.innerHTML = `${typeof name},${name}<br>`;
+        divE1.innerHTML += `${typeof age},${age}<br>`;
+        divE1.innerHTML += `${typeof bool},${bool}<br>`;
+        divE1.innerHTML += `${typeof hobby},${hobby}<br>`;
+        divE1.innerHTML += `${typeof divE1},${divE1}<br>`;
+        divE1.innerHTML += `${typeof user},${user}<br>`;
+        divE1.innerHTML += `${typeof testFn},${testFn}<br>`;
+        divE1.innerHTML += `${typeof noval},${noval}<br>`;
+
+
+
+
+            
+            // 백틱(ES6) 사용시 /n을 사용하지 않아도 줄바꿈이 들어감
+            // 백틱 안에 달러기호 ${}를 사용하면 변수나 표현식을 표현할 수 있음
+            const name2 = `Hello ${name}`;
+            console.log(name2);
+        }
+        const testFn = function() {
+            alert("함수호출");
+        }
+
 
 
 
